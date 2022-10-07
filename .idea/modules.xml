@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Dailyactivity.iml" filepath="$PROJECT_DIR$/.idea/Dailyactivity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SDET Selenium python/.idea/SeleniumProject.iml" filepath="$PROJECT_DIR$/../SDET Selenium python/.idea/SeleniumProject.iml" />
+    </modules>
+  </component>
+</project>
