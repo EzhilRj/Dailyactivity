@@ -7,3 +7,5 @@
 2022-04-20 18:05:41.278 Loginall.py[355] test_Loginall -> Find Control Timeout(10s): {Name: 'File name:', ControlType: EditControl}
 2022-04-20 18:22:16.666 Loginall.py[342] test_Loginall -> Find Control Timeout(10s): {Name: 'File name:', ControlType: EditControl}
 2022-04-20 18:31:26.228 Loginall.py[511] test_Loginall -> Find Control Timeout(10s): {Name: 'File name:', ControlType: EditControl}
+2022-12-13 07:57:14.000 Loginall.py[487] test_Loginall -> Find Control Timeout(10s): {Name: 'Open', ControlType: ButtonControl}
+2022-12-14 08:29:55.548 Loginall.py[517] test_Loginall -> Find Control Timeout(10s): {Name: 'File name:', ControlType: EditControl}

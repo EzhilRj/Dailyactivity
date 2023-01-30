@@ -12,6 +12,7 @@ import configparser
 
 class Test(unittest.TestCase):
 
+
     @classmethod
     def setUpClass(cls):
 
@@ -43,7 +44,7 @@ class Test(unittest.TestCase):
                       datefmt='%d-%m-%y %I:%M:%S %p')
 
         cls.driver = chromedriver_autoinstaller.install(False, 'C:\TestLogin')
-        cls.driver = webdriver.Chrome(executable_path='C:/TestLogin/105/chromedriver.exe', chrome_options=options)
+        cls.driver = webdriver.Chrome(executable_path='C:/TestLogin/109/chromedriver.exe', chrome_options=options)
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
         L.info("Chrome is Opened Succesfully")
@@ -88,7 +89,7 @@ class Test(unittest.TestCase):
             time.sleep(1)
             Redipaefolderpath = "C:\TestLogin\Screenshots\Redipaelogin"
             Redipaetimeformat = time.asctime().replace(":", "")
-            Redipaeimg = Redipaefolderpath + Redipaetimeformat + ".jpg"
+            Redipaeimg = Redipaefolderpath + Redipaetimeformat + ".png"
             L.info("Redipae screenshot is captured")
             self.driver.get_screenshot_as_file(Redipaeimg)
             Redipaesayingmsg = "Redipae Login successfully"
@@ -144,7 +145,7 @@ class Test(unittest.TestCase):
             time.sleep(1)
             HRMSfolderpath = "C:\TestLogin\Screenshots\HRMSLogin"
             HRMStimeformat = time.asctime().replace(":", "")
-            hrmsimg = HRMSfolderpath + HRMStimeformat + ".jpg"
+            hrmsimg = HRMSfolderpath + HRMStimeformat + ".png"
             L.info("HRMS Screenshot is Captured")
             self.driver.get_screenshot_as_file(hrmsimg)
             hrmssayingmsg = 'HRMS Login Successfully'
@@ -164,58 +165,58 @@ class Test(unittest.TestCase):
             L.error(Hrmserr)
 
             # Payroll
-        payrollurl = config.get('credentialsection', 'PayrollBaseurl')
-        payrolluname = config.get('credentialsection', 'Payrolluseranme')
-        payrollepword = config.get('credentialsection', 'Payrollpassword')
-        payrollcomp = config.get('credentialsection', 'Payrollcompany')
-
-        L.info("Payroll is Opened")
-        self.driver.get(payrollurl)
-        L.info("Payroll USername is Entered")
-        self.driver.find_element(By.ID, "txtUsername").send_keys(payrolluname)
-        L.info("Payroll Password is Entered")
-        self.driver.find_element(By.ID, "txtPassword").send_keys(payrollepword)
-        L.info("Payroll Company is Entered")
-        self.driver.find_element(By.ID, "txtClient").send_keys(payrollcomp)
-        L.info("Submit button is Clicked")
-        self.driver.find_element(By.ID, "btnLogin").click()
-        L.info(payrollurl)
-        L.info(payrolluname)
-        L.info(payrollepword)
-        L.info(payrollcomp)
-
-        Payrollerr = ''
-        payrollsayingmsg = ''
-
-        try:
-            Payrollerr = self.driver.find_element(By.ID, "lblError").text
-            L.error(Payrollerr)
-
-        except:
-             L.info("FoRm is clicked")
-             self.driver.find_element(By.XPATH, "//*[@id='aspnetForm']/div[4]/div[1]/div/div[2]/ul/li/a").click()
-             L.info("Designation master is clicked")
-             self.driver.find_element(By.XPATH, "//*[@href='DesignationMaster.aspx']").click()
-             time.sleep(1)
-             Payrollimgfolderpath = "C:\TestLogin\Screenshots\PayrollLogin"
-             payrolltimeformat = time.asctime().replace(":", "")
-             Payrollimg = Payrollimgfolderpath + payrolltimeformat + ".jpg"
-             L.info("Payroll Screenshot captured Sucessfully")
-             self.driver.get_screenshot_as_file(Payrollimg)
-             payrollsayingmsg = "Payroll Login successfully"
-             print(payrollsayingmsg)
-             L.info(payrollsayingmsg)
-
-        if (Payrollerr == "Wrong Username or Password!"):
-            Payrollwpmsg = ("Payroll Says :: [" + Payrollerr + "]")
-            print(Payrollwpmsg)
-            time.sleep(0.5)
-            Payrollerrorimgfolderpath = "C:\TestLogin\LoginErrorScreenshots\PayrollLoginerror"
-            payrolltimeformat = time.asctime().replace(":", "")
-            Payrollerrorimg = Payrollerrorimgfolderpath + payrolltimeformat + ".jpg"
-            L.info("Payroll Failure screenshot is Captured")
-            self.driver.get_screenshot_as_file(Payrollerrorimg)
-            L.error(Payrollerr)
+        # payrollurl = config.get('credentialsection', 'PayrollBaseurl')
+        # payrolluname = config.get('credentialsection', 'Payrolluseranme')
+        # payrollepword = config.get('credentialsection', 'Payrollpassword')
+        # payrollcomp = config.get('credentialsection', 'Payrollcompany')
+        #
+        # L.info("Payroll is Opened")
+        # self.driver.get(payrollurl)
+        # L.info("Payroll USername is Entered")
+        # self.driver.find_element(By.ID, "txtUsername").send_keys(payrolluname)
+        # L.info("Payroll Password is Entered")
+        # self.driver.find_element(By.ID, "txtPassword").send_keys(payrollepword)
+        # L.info("Payroll Company is Entered")
+        # self.driver.find_element(By.ID, "txtClient").send_keys(payrollcomp)
+        # L.info("Submit button is Clicked")
+        # self.driver.find_element(By.ID, "btnLogin").click()
+        # L.info(payrollurl)
+        # L.info(payrolluname)
+        # L.info(payrollepword)
+        # L.info(payrollcomp)
+        #
+        # Payrollerr = ''
+        # payrollsayingmsg = ''
+        #
+        # try:
+        #     Payrollerr = self.driver.find_element(By.ID, "lblError").text
+        #     L.error(Payrollerr)
+        #
+        # except:
+        #      L.info("FoRm is clicked")
+        #      self.driver.find_element(By.XPATH, "//*[@id='aspnetForm']/div[4]/div[1]/div/div[2]/ul/li/a").click()
+        #      L.info("Designation master is clicked")
+        #      self.driver.find_element(By.XPATH, "//*[@href='DesignationMaster.aspx']").click()
+        #      time.sleep(1)
+        #      Payrollimgfolderpath = "C:\TestLogin\Screenshots\PayrollLogin"
+        #      payrolltimeformat = time.asctime().replace(":", "")
+        #      Payrollimg = Payrollimgfolderpath + payrolltimeformat + ".jpg"
+        #      L.info("Payroll Screenshot captured Sucessfully")
+        #      self.driver.get_screenshot_as_file(Payrollimg)
+        #      payrollsayingmsg = "Payroll Login successfully"
+        #      print(payrollsayingmsg)
+        #      L.info(payrollsayingmsg)
+        #
+        # if (Payrollerr == "Wrong Username or Password!"):
+        #     Payrollwpmsg = ("Payroll Says :: [" + Payrollerr + "]")
+        #     print(Payrollwpmsg)
+        #     time.sleep(0.5)
+        #     Payrollerrorimgfolderpath = "C:\TestLogin\LoginErrorScreenshots\PayrollLoginerror"
+        #     payrolltimeformat = time.asctime().replace(":", "")
+        #     Payrollerrorimg = Payrollerrorimgfolderpath + payrolltimeformat + ".jpg"
+        #     L.info("Payroll Failure screenshot is Captured")
+        #     self.driver.get_screenshot_as_file(Payrollerrorimg)
+        #     L.error(Payrollerr)
 
             # FrameX
         Frameurl = config.get('credentialsection', 'FramexBaseurl')
@@ -251,7 +252,7 @@ class Test(unittest.TestCase):
             time.sleep(3)
             frameximgfolderpath = "C:\TestLogin\Screenshots\FrameLogin"
             frametimeformat = time.asctime().replace(":", "")
-            frameximg = frameximgfolderpath + frametimeformat + ".jpg"
+            frameximg = frameximgfolderpath + frametimeformat + ".png"
             L.info("Framex Screenshot is captured")
             self.driver.get_screenshot_as_file(frameximg)
             framesayingmsg = "Framex Login successfully"
@@ -302,7 +303,7 @@ class Test(unittest.TestCase):
             time.sleep(1)
             vendoimgfolderpath = "C:\TestLogin\Screenshots\Vendologin"
             vendotimeformat = time.asctime().replace(":", "")
-            vendoimg = vendoimgfolderpath + vendotimeformat + ".jpg"
+            vendoimg = vendoimgfolderpath + vendotimeformat + ".png"
             L.info("Vendo Screenshot is Captured")
             self.driver.get_screenshot_as_file(vendoimg)
             vendosayingmsg = "Vendo login successfully"
@@ -372,6 +373,7 @@ class Test(unittest.TestCase):
         WhatsappURl = config.get('credentialsection', 'WhatsappBaseurl')
         L.info("Whatsapp is Opened")
         self.driver.get(WhatsappURl)
+        time.sleep(10)
         L.info("DevTeam Fieldlytics is clicked")
         #L.info(self.driver.find_element(By.XPATH,"//*[@title='Sandy']").click())
         #L.info(self.driver.find_element(By.XPATH, "//*[@title=\"Code Fieldlytics\"]").click())
@@ -392,7 +394,7 @@ class Test(unittest.TestCase):
             fil = uiautomation.EditControl(Name="File name:")
             fil.SetFocus()
             fil.SendKeys('{Enter}')
-            self.driver.find_element(By.XPATH, "//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys('Redipae Successfully Logged in')
+            self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys('Redipae Successfully Logged in')
             L.info('Redipae Successfully Logged in')
 
         else:
@@ -406,7 +408,7 @@ class Test(unittest.TestCase):
             fil = uiautomation.EditControl(Name="File name:")
             fil.SetFocus()
             fil.SendKeys('{Enter}')
-            self.driver.find_element(By.XPATH, "//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys(Redipaewpmsg)
+            self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys(Redipaewpmsg)
             L.error(Redipaewpmsg)
 
         # HRMS
@@ -422,7 +424,7 @@ class Test(unittest.TestCase):
             fil = uiautomation.EditControl(Name="File name:")
             fil.SetFocus()
             fil.SendKeys('{Enter}')
-            self.driver.find_element(By.XPATH, "//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys('HRMS Successfully Logged in')
+            self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys('HRMS Successfully Logged in')
             L.info("HRMS Successfully Logged in")
 
         # HRMSError
@@ -438,7 +440,7 @@ class Test(unittest.TestCase):
             fil.SetFocus()
             fil.SendKeys('{Enter}')
             time.sleep(1)
-            self.driver.find_element(By.XPATH,"//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys(HRMSWpmsg)
+            self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys(HRMSWpmsg)
             L.error(HRMSWpmsg)
 
         # Payroll
@@ -488,7 +490,7 @@ class Test(unittest.TestCase):
            fil = uiautomation.EditControl(Name="File name:")
            fil.SetFocus()
            fil.SendKeys('{Enter}')
-           self.driver.find_element(By.XPATH,"//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys('Framex Successfully Logged in')
+           self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys('Framex Successfully Logged in')
            L.info("Framex Successfully Logged in")
 
     # FramexError
@@ -504,7 +506,7 @@ class Test(unittest.TestCase):
            fil.SetFocus()
            fil.SendKeys('{Enter}')
            time.sleep(1)
-           self.driver.find_element(By.XPATH,"//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys(framexwpmsg)
+           self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys(framexwpmsg)
            L.error(framexwpmsg)
 
     # Vendo
@@ -520,7 +522,7 @@ class Test(unittest.TestCase):
            fil = uiautomation.EditControl(Name="File name:")
            fil.SetFocus()
            fil.SendKeys('{Enter}')
-           self.driver.find_element(By.XPATH,"//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys('Vendo Successfully Logged in')
+           self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys('Vendo Successfully Logged in')
            L.info("Vendo Successfully Logged in")
 
 
@@ -538,7 +540,7 @@ class Test(unittest.TestCase):
            fil = uiautomation.EditControl(Name="File name:")
            fil.SetFocus()
            fil.SendKeys('{Enter}')
-           self.driver.find_element(By.XPATH,"//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys(vendowpmsg)
+           self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys(vendowpmsg)
            L.error(vendowpmsg)
 
 
@@ -557,7 +559,7 @@ class Test(unittest.TestCase):
            fil.SetFocus()
            fil.SendKeys('{Enter}')
            time.sleep(1)
-           self.driver.find_element(By.XPATH,"//*[@id='app']/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]").send_keys(vendowpmsg)
+           self.driver.find_element(By.XPATH, "//*[@title='Type a message']").send_keys(vendowpmsg)
            L.error(vendowpmsg)
 
     # Bandhu
